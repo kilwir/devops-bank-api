@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  db:
+   container_name: database
+   image: mysql:5.7
+   volumes:
+    #- /var/faceact/mysql:/var/lib/mysql
+    - /Users/remy/Desktop/DevOps/mysql:/var/lib/mys
+   restart: on-failure
+   environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: bank
+    MYSQL_USER: bank
+    MYSQL_PASSWORD: bank
+   ports:
+    - "10000:3306"
+  node-api:
+   depends_on:
+    - db
+   links:
+    - db:mysql
+   container_name: api
+   image: devops/bank-api
+   ports:
+    - "4000:4000"
+   restart: on-failure

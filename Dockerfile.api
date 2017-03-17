@@ -1,0 +1,22 @@
+FROM debian:jessie
+MAINTAINER Rémy Jallan "jallanremy@gmail.com"
+
+USER root
+
+WORKDIR /root
+
+## Install nodejs / mysql
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g sequelize-cli mocha
+
+COPY projet/ api/
+
+WORKDIR /root/api
+
+RUN npm install
+
+CMD sleep 20 && \
+    nodejs app.js

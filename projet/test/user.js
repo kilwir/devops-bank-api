@@ -1,7 +1,7 @@
 var supertest = require('supertest');
 var should = require('should');
 
-var server = supertest.agent('http://localhost:4000/');
+var server = supertest.agent('http://api:4000/');
 var invoiceData = {};
 var testUser = {};
 var invoiceRoute = 'user/1/invoice';

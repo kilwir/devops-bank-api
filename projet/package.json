@@ -34,7 +34,8 @@
   },
   "scripts": {
     "migration": "sequelize db:migrate",
-    "seed": "sequelize db:seed"
+    "seed": "sequelize db:seed",
+    "test": "mocha"
   },
   "author": "Mopidev",
   "license": "ISC"
