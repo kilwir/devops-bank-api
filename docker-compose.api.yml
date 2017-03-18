@@ -5,8 +5,8 @@ services:
    container_name: database
    image: mysql:5.7
    volumes:
-    #- /var/faceact/mysql:/var/lib/mysql
-    - /Users/remy/Desktop/DevOps/mysql:/var/lib/mys
+    - /var/mysql:/var/lib/mysql
+    #- /Users/remy/Desktop/DevOps/mysql:/var/lib/mys
    restart: on-failure
    environment:
     MYSQL_ROOT_PASSWORD: root

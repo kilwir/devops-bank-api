@@ -2,11 +2,11 @@ version: '2'
 
 services:
   db:
-   container_name: database
+   container_name: database-test
    image: mysql:5.7
    volumes:
-    #- /var/faceact/mysql:/var/lib/mysql
-    - /Users/remy/Desktop/DevOps/mysql:/var/lib/mys
+    - /var/mysql:/var/lib/mysql
+    #- /Users/remy/Desktop/DevOps/mysql:/var/lib/mys
    environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: bank
@@ -19,7 +19,7 @@ services:
     - db
    links:
     - db:mysql
-   container_name: api
+   container_name: api-test
    image: devops/bank-api
    ports:
     - "4000:4000"
@@ -30,5 +30,5 @@ services:
    links:
     - db:mysql
     - node-api:api
-   container_name: api-test
+   container_name: test-unitaire
    image: devops/bank-api-test
